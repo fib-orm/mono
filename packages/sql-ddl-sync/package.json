@@ -1,0 +1,69 @@
+{
+	"name": "@fib-orm/sql-ddl-sync",
+	"version": "0.1.0",
+	"description": "Fibjs SQL DDL Synchronization",
+	"keywords": [
+		"sql",
+		"ddl",
+		"sync",
+		"mysql",
+		"postgres",
+		"sqlite"
+	],
+	"author": "Richard <richardo2016@gmail.com>",
+	"license": "MIT",
+	"repository": "https://github.com/fib-orm/packages/sql-ddl-sync",
+	"types": "@types/index.d.ts",
+	"main": "./lib",
+	"unpkg": "./dist/index.js",
+	"jsdelivr": "./dist/index.js",
+	"scripts": {
+		"build": "fibjs build.js",
+		"test-db": "fibjs test/run-db",
+		"test-db-mysql": "cross-env URI=mysql://root:@localhost:3306/sql-ddl-sync npm run test-db",
+		"test": "fibjs test",
+		"ci": "npm run build && npm run test",
+		"ci-mysql": "npm run build && npm run test-db-mysql",
+		"prepublishOnly": "npm run build"
+	},
+	"engines": {
+		"fibjs": "*"
+	},
+	"analyse": false,
+	"peerDependencies": {
+		"@fib-orm/db-driver": "*",
+		"@fib-orm/sql-query": "*"
+	},
+	"devDependencies": {
+		"@fibjs/ci": "^2.2.0",
+		"@fibjs/types": "^0.27.1",
+		"@fib-orm/db-driver": "^0.1.0",
+		"@fib-orm/core": "^0.1.0",
+		"@fib-orm/sql-query": "^0.1.0",
+		"cross-env": "^5.2.0",
+		"fib-pool": "^1.6.0",
+		"fib-rollup": "^0.4.0",
+		"fib-typify": "^0.6.0",
+		"rollup-plugin-commonjs": "^9.2.1",
+		"should": "^13.2.3"
+	},
+	"rollup.internal": [
+		"@fib-orm/sql-query/lib/Dialects"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"ci": {
+		"type": "travis, appveyor",
+		"version": [
+			"0.21.0",
+			"0.22.0",
+			"0.23.0",
+			"0.24.0",
+			"0.25.0",
+			"0.26.0",
+			"0.26.1",
+			"0.27.0"
+		]
+	}
+}

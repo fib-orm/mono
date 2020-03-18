@@ -1,0 +1,9 @@
+*.sublime-*
+node_modules/
+test.js
+
+package-lock.json
+
+lib
+dist
+*.db*

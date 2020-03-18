@@ -1,0 +1,46 @@
+{
+  "name": "@fib-orm/hql",
+  "version": "0.1.0",
+  "description": "",
+  "main": "lib",
+  "types": "@types/index.d.ts",
+  "repository": {
+    "type": "https",
+    "url": "https://github.com/fib-orm/packages/hql"
+  },
+  "homepage": "https://github.com/fib-orm/packages/hql",
+  "scripts": {
+    "compile": "fibjs ./build-ne.js",
+    "build": "fib-typify ./src -o ./lib",
+    "test": "fibjs test",
+    "ci": "npm run build && npm run compile && npm run test",
+    "prepublishOnly": "npm run ci"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/nearley": "^2.11.0",
+    "nearley": "^2.19.0"
+  },
+  "devDependencies": {
+    "@fibjs/types": "^0.27.1",
+    "fib-pool": "^1.6.0",
+    "fib-typify": "^0.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "ci": {
+    "type": "travis, appveyor",
+    "version": [
+      "0.21.0",
+      "0.22.0",
+      "0.23.0",
+      "0.24.0",
+      "0.25.0",
+      "0.26.0",
+      "0.26.1",
+      "0.27.0"
+    ]
+  }
+}

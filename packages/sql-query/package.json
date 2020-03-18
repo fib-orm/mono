@@ -1,0 +1,62 @@
+{
+	"name": "@fib-orm/sql-query",
+	"version": "0.1.0",
+	"types": "@types/index.d.ts",
+	"author": "Richard <richardo2016@gmail.com>",
+	"description": "Fibjs SQL query builder",
+	"keywords": [
+		"sql",
+		"query"
+	],
+	"license": "MIT",
+	"repository": {
+		"url": "https://github.com/fib-orm/packages/sql-query"
+	},
+	"scripts": {
+		"build": "fib-typify src -o lib",
+		"build:rollup": "fibjs ./rollup.build.js",
+		"test": "fibjs test/run",
+		"test:rollup": "cross-env ENTRY_SUFFIX=.cjs.js fibjs test/vbox",
+		"ci": "npm run build && npm run test",
+		"ci:rollup": "npm run build && npm run build:rollup && npm run test:rollup",
+		"prepublishOnly": "npm run build && npm run ci:rollup"
+	},
+	"main": "./lib/Query",
+	"unpkg": "./lib/index.cjs.js",
+	"jsdelivr": "./lib/index.cjs.js",
+	"engines": {
+		"fibjs": "*"
+	},
+	"analyse": false,
+	"devDependencies": {
+		"@fibjs/ci": "^2.2.0",
+		"@fibjs/types": "^0.27.1",
+		"@fxjs/knex": "^0.2.0",
+		"@types/node": "^11.13.0",
+		"cross-env": "^5.2.0",
+		"fib-rollup": "^0.4.0",
+		"fib-typify": "^0.6.0",
+		"knex": "^0.19.5",
+		"rollup-plugin-commonjs": "^9.2.0"
+	},
+	"peerDependencies": {
+		"@fxjs/knex": ">= 0.2.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"ci": {
+		"type": "travis, appveyor",
+		"version": [
+			"0.21.0",
+			"0.22.0",
+			"0.23.0",
+			"0.24.0",
+			"0.25.0",
+			"0.26.0",
+			"0.26.1",
+			"0.27.0",
+			"0.28.0"
+		]
+	}
+}
